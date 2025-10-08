@@ -33,12 +33,12 @@
 // });
 
 import { describe, it, expect } from "vitest";
-import { myReduce } from "../myArrayUtils";
+import { myReduce } from "../myArrayUtils.js";
 
 describe("myReduce", () => {
   it("should sum all numbers", () => {
     const nums = [1, 2, 3];
-    const result = myReduce(nums, (acc, n) => acc + n, 0);
+    const result = myReduce(nums, (acc: number, n: number) => acc + n, 0);
     expect(result).toBe(6);
   });
 
