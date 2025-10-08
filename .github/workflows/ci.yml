@@ -12,7 +12,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: learn-ts-basics
+        working-directory: ./learn-ts-basics
 
     steps:
       - name: Checkout repository
