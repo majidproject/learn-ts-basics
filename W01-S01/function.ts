@@ -6,26 +6,20 @@ function sum(a: number, b: number): number {
 console.log(sum(3, 7)); // 10
 console.log(sum(-2, 5)); // 3
 
-
-
 // --- Exercise 2: greet ---
 function greet(name: string): string {
   return `Hello, ${name}!`;
 }
 
-console.log(greet("Majid")); 
-
-
+console.log(greet("Majid"));
 
 // --- Exercise 3: isEven ---
 function isEven(num: number): boolean {
-  return num % 2 === 0 ;
+  return num % 2 === 0;
 }
 
-console.log(isEven(4)); 
-console.log(isEven(7)); 
-
-
+console.log(isEven(4));
+console.log(isEven(7));
 
 // --- Exercise 4: printId ---
 function printId(id: string | number): void {
@@ -34,8 +28,6 @@ function printId(id: string | number): void {
 
 printId(123);
 printId("abc123");
-
-
 
 // --- Exercise 5: sumArray ---
 function sumArray(numbers: number[]): number {
@@ -47,9 +39,7 @@ function sumArray(numbers: number[]): number {
 }
 
 console.log(sumArray([1, 2, 3, 4])); // 10
-console.log(sumArray([10, -5, 7]));  // 12
-
-
+console.log(sumArray([10, -5, 7])); // 12
 
 // --- Exercise 6: formatUser ---
 type UserTuple = [string, number];
@@ -62,14 +52,12 @@ function formatUser(userData: UserTuple): string {
 
 console.log(formatUser(["Majid", 47]));
 
-
-
 // --- Exercise 7: getDirectionMessage ---
 enum Direction {
   Up,
   Down,
   Left,
-  Right
+  Right,
 }
 
 function getDirectionMessage(dir: Direction): string {
@@ -90,8 +78,6 @@ function getDirectionMessage(dir: Direction): string {
 console.log(getDirectionMessage(Direction.Left));
 console.log(getDirectionMessage(Direction.Up));
 
-
-
 // --- Exercise 8: greetUser ---
 function greetUser(name: string, greeting?: string): string {
   if (greeting) {
@@ -104,17 +90,16 @@ function greetUser(name: string, greeting?: string): string {
 console.log(greetUser("Majid", "welcome back!")); // Hi Majid, welcome back!
 console.log(greetUser("Sara")); // Hi Sara
 
-
-
 // --- Exercise 9: greetUserDefault ---
-function greetUserDefault(name: string, greeting: string = "nice to see you!"): string {
+function greetUserDefault(
+  name: string,
+  greeting: string = "nice to see you!"
+): string {
   return `Hi ${name}, ${greeting}`;
 }
 
-console.log(greetUserDefault("Majid", "welcome back!"));// Hi Majid, welcome back!
-console.log(greetUserDefault("Sara"));// Hi Sara, nice to see you!
-
-
+console.log(greetUserDefault("Majid", "welcome back!")); // Hi Majid, welcome back!
+console.log(greetUserDefault("Sara")); // Hi Sara, nice to see you!
 
 // --- Exercise 10: describeShape ---
 function describeShape(shape: string, size: number): string {

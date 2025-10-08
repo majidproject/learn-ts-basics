@@ -6,7 +6,7 @@ class Circle {
   }
 
   area(): number {
-    return Math.PI * (this.radius ** 2);
+    return Math.PI * this.radius ** 2;
   }
 }
 

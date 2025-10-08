@@ -6,7 +6,6 @@
 //   return result;
 // }
 
-
 // export function myFilter<T>(
 //   array: T[],
 //   callback: (item: T, index: number) => boolean
@@ -19,7 +18,6 @@
 //   }
 //   return result;
 // }
-
 
 export function myReduce<T, U>(
   array: T[],
