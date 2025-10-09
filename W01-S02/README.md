@@ -1,103 +1,101 @@
-# Learn TypeScript Basics
+# Week 01 - Session 02  
+## TypeScript Basics: Array Utilities, Linting & Testing
 
-این پروژه برای تمرین مفاهیم پایه‌ی TypeScript ساخته شده است.  
-در اینجا سه تابع پایه‌ی آرایه را از صفر پیاده‌سازی و تست کرده‌ایم:
-
-- `myMap` — ایجاد آرایه‌ی جدید با تغییر در عناصر
-- `myFilter` — فیلتر کردن عناصر بر اساس شرط
-- `myReduce` — تجمیع داده‌ها در یک مقدار نهایی
+### 🎯 Goal
+In this session, we focused on **developing and testing reusable array utilities** (`map`, `filter`, and `reduce`) using **TypeScript**.  
+You also learned how to set up **ESLint**, **Prettier**, and **Vitest** for a clean and maintainable TypeScript workflow.
 
 ---
 
-## 🚀 اجرای پروژه
+### 📂 Project Structure
+```
+W01-S02/
+│
+├── src/
+│   ├── myArrayUtils.ts          # Custom implementations of map, filter, reduce
+│   └── tests/
+│       └── myArrayUtils.test.ts # Unit tests using Vitest
+│
+├── tsconfig.json                # TypeScript compiler configuration
+├── package.json                 # Dependencies and scripts
+├── package-lock.json
+└── README.md                    # This documentation file
+```
 
-1. نصب وابستگی‌ها:
+---
 
-mkdir ../learn-ts-basics
-cd ../learn-ts-basics
-npm init -y
-npm install --save-dev typescript vitest
-npx tsc --init
+### ⚙️ Setup & Installation
 
-2. داخل فولدر learn-ts-basics
+1. Navigate to this folder:
+   ```bash
+   cd W01-S02
+   ```
 
-npm init -y
-npm install --save-dev typescript vitest
-npx tsc --init
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-3. فایل tsconfig.json رو باز کن و این بخش‌ها رو بررسی یا جایگزین کن
+3. (Optional) Format code and check for style errors:
+   ```bash
+   npm run format
+   npm run lint
+   ```
 
-{
-"compilerOptions": {
-"target": "ES2020",
-"module": "ESNext",
-"strict": true,
-"moduleResolution": "node",
-"esModuleInterop": true,
-"skipLibCheck": true,
-"outDir": "dist"
-},
-"include": ["src"]
-}
+4. Run type checking:
+   ```bash
+   npm run typecheck
+   ```
 
-4. و سپس فولدر src بساز
+5. Run tests:
+   ```bash
+   npx vitest run
+   ```
+   or for watch mode:
+   ```bash
+   npx vitest
+   ```
 
-mkdir src
+---
 
-5. در package.json خط scripts رو به شکل زیر تنظیم کن
+### 🧩 Concepts Covered
+- TypeScript generics in function signatures
+- Implementing `map`, `filter`, and `reduce` manually
+- Writing and structuring test cases with Vitest
+- Using ESLint and Prettier for code quality
+- Type-checking automation via `tsc --noEmit`
 
-"scripts": {
-"test": "vitest"
-}
+---
 
-6. در مسیر src/myArrayUtils.ts بنویس
+### ✅ Definition of Done (DoD)
+- All ESLint and Prettier checks pass  
+- `npm run typecheck` completes with no errors  
+- All tests pass (`npm test` or `npx vitest run`)  
+- README updated with examples and explanations
 
-export function myMap<T, U>(array: T[], callback: (item: T, index: number) => U): U[] {
-const result: U[] = [];
-for (let i = 0; i < array.length; i++) {
-result.push(callback(array[i], i));
-}
-return result;
-}
+---
 
-7. در پوشه‌ی tests/ فایلی بساز به نام:📄 myArrayUtils.test.ts
+### 🧠 Notes
+This session emphasized **functional programming patterns** and **clean code** practices in TypeScript.  
+The utilities you built here will be reused and extended in later sessions.
 
-import { describe, it, expect } from "vitest";
-import { myMap } from "../src/myArrayUtils";
 
-describe("myMap", () => {
-it("should double each number", () => {
-const nums = [1, 2, 3];
-const result = myMap(nums, (n) => n \* 2);
-expect(result).toEqual([2, 4, 6]);
-});
+--------------------------------------------------------------------------
 
-it("should convert numbers to strings", () => {
-const nums = [10, 20];
-const result = myMap(nums, (n) => `#${n}`);
-expect(result).toEqual(["#10", "#20"]);
-});
-});
+🧠 Created with ❤️ by **Majid Mansouri**  
 
-8. بعد از ذخیره، در ترمینال بزن
+### Connect with Me
 
-npx vitest run
+Thank you for exploring this project! I'm committed to continuous learning and open to collaboration.
 
-9. اگر همه‌چیز درست باشه، خروجی باید شبیه این باشه
+| Resource | Link |
+| :--- | :--- |
+| 🌐 **Portfolio** | [majidproject.github.io/web-portfolio/](https://majidproject.github.io/web-portfolio/) |
+| 🔗 **LinkedIn**  | [linkedin.com/in/majid-mansouri-a8163866](https://www.linkedin.com/in/majid-mansouri-a8163866) |
+| 📧 **Email**     | [mm.project.8902@gmail.com](mailto:mm.project.8902@gmail.com) |
 
-✓ myMap › should double each number
-✓ myMap › should convert numbers to strings
+*This repository is a result of my dedicated Full-Stack learning journey.*
 
-10. خلاصه‌ی کاربردی متدهای اصلی آرایه
-    متد هدف توضیح کوتاه
-    map() تبدیل عناصر آرایه‌ای جدید با همان طول می‌سازد؛ هر مقدار را با تابع callback به مقدار تازه‌ای تبدیل می‌کند.
-    filter() انتخاب عناصر فقط عناصری را نگه می‌دارد که شرط داده‌شده را پاس می‌کنند؛ تعداد عناصر ممکن است کمتر شود.
-    reduce() تجمیع عناصر همه‌ی عناصر را به یک مقدار نهایی (مثلاً جمع، میانگین یا رشته) تبدیل می‌کند.
+--------------------------------------------------------------------------
 
-مثال خلاصه در TypeScript:
-
-const nums = [1, 2, 3, 4];
-
-const mapped = nums.map(n => n \* 2); // [2, 4, 6, 8]
-const filtered = nums.filter(n => n > 2); // [3, 4]
-const reduced = nums.reduce((a, b) => a + b, 0); // 10
+> “Learning never stops — each commit is one step closer to mastery.”
